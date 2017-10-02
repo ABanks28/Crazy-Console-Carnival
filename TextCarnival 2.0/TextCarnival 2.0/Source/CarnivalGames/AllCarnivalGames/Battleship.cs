@@ -43,9 +43,39 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 dramaticPause(5);
                 writeOut("Go!");
             }
-            while(1==1)
+
+            writeLine("Raft location 1: ");
+            string L1 = getInput();
+            writeLine("Raft location 2: ");
+            string L2 = getInput();
+            writeLine("Raft location 3: ");
+            string L3 = getInput();
+            writeLine("Raft location 4: ");
+            string L4 = getInput();
+            writeLine("Raft location 5: ");
+            string L5 = getInput();
+
+            while (1==1)
             {
-                writeLine("");
+                string[,] enemyField = new string[,]
+                    {
+                        {"x", "x", "x", "x", "x"},
+                        {"x", "x", "x", "x", "x"},
+                        {"x", "x", "x", "x", "x"},
+                        {"x", "x", "x", "x", "x"},
+                        {"x", "x", "x", "x", "x"},
+                    };
+                for (int r = 0; r < 5; r++)
+                {
+                    writeLine("");
+                    for (int c = 0; c < 5; c++)
+                    {
+                        write(enemyField[r, c]);
+                    }
+                }
+                
+                
+
             }
             
 
