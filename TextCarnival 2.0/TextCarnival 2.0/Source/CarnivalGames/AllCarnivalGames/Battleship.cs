@@ -55,9 +55,44 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             writeLine("Raft location 5: ");
             string L5 = getInput();
 
+
+
             while (1==1)
             {
+                Random rand = new Random();
+                int xRand = rand.Next(5);
+                int yRand = rand.Next(5);
+
+                char aa = Convert.ToChar(L1.Substring(0, 1));
+                int a = char.ToUpper(aa) - 65;
+                int aaa = Convert.ToInt32(L1.Substring(1));
+
+                char bb = Convert.ToChar(L2.Substring(0, 1));
+                int b = char.ToUpper(bb) - 65;
+                int bbb = Convert.ToInt32(L2.Substring(1));
+
+                char cc = Convert.ToChar(L3.Substring(0, 1));
+                int c = char.ToUpper(cc) - 65;
+                int ccc = Convert.ToInt32(L3.Substring(1));
+
+                char dd = Convert.ToChar(L4.Substring(0, 1));
+                int d = char.ToUpper(dd) - 65;
+                int ddd = Convert.ToInt32(L4.Substring(1));
+
+                char ee = Convert.ToChar(L5.Substring(0, 1));
+                int e = char.ToUpper(ee) - 65;
+                int eee = Convert.ToInt32(L5.Substring(1));
+
+
                 string[,] enemyField = new string[,]
+                    {
+                        {"-", "-", "-", "-", "-"},
+                        {"-", "-", "-", "-", "-"},
+                        {"-", "-", "-", "-", "-"},
+                        {"-", "-", "-", "-", "-"},
+                        {"-", "-", "-", "-", "-"},
+                    };
+                string[,] yourField = new string[,]
                     {
                         {"x", "x", "x", "x", "x"},
                         {"x", "x", "x", "x", "x"},
@@ -65,16 +100,31 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                         {"x", "x", "x", "x", "x"},
                         {"x", "x", "x", "x", "x"},
                     };
+
+                yourField[a, aaa] = yourField[a, aaa].Replace("x", "o");
+                yourField[b, bbb] = yourField[b, bbb].Replace("x", "o");
+                yourField[c, ccc] = yourField[c, ccc].Replace("x", "o");
+                yourField[d, ddd] = yourField[d, ddd].Replace("x", "o");
+                yourField[e, eee] = yourField[e, eee].Replace("x", "o");
+
                 for (int r = 0; r < 5; r++)
                 {
                     writeLine("");
-                    for (int c = 0; c < 5; c++)
+                    for (int k = 0; k < 5; k++)
                     {
-                        write(enemyField[r, c]);
+                        write(enemyField[r, k]);
                     }
                 }
-                
-                
+                for (int r = 0; r < 5; r++)
+                {
+                    writeLine("");
+                    for (int k = 0; k < 5; k++)
+                    {
+                        write(yourField[r, k]);
+                    }
+                }
+
+                string asfasd = getInput();
 
             }
             
