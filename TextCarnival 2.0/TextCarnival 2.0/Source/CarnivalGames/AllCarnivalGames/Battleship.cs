@@ -15,25 +15,32 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
         public override void play()
         {
-            writeOut("Welcome to a very crappy, beat-down version of battleship!  One of the many features that makes this game so crappy is that you can't play with two players.  So if you have a friend next to you, excited to play some quality battleship, have fun taking turns!");
+			writeLine("");
+			writeLine("===============================================");
+			writeLine("|b0Battleship - Andrew Banks|f0");
+			writeLine("===============================================");
+
+			writeOut("Welcome to a very crappy, beat-down version of battleship!  One of the many features that makes this game so crappy is that you can't play with two players.  So if you have a friend next to you, excited to play some quality battleship, have fun taking turns!");
             wait(5);
-            writeOut("What is your name?");
+            writeLine("|b0What is your name?|f0");
             string PlayersName = getInput();
             wait(2);
             writeOut(PlayersName + ", really?  Same!");
             wait(3);
             writeOut("My name is " + PlayersName + ", birdwatching-extraordinaire and battleship champion.  Are you ready to battle, or would you like a tutorial?");
-            writeOut("[battle] or [tutorial]");
+            writeLine("|b0[battle] or [tutorial]|f0");
             string battleOrTutorial = getOption("battle", "tutorial");
             if (battleOrTutorial == "tutorial")
             {
                 writeOut("Are you serious?  You don't know how to play battleship?  Did you even have a childhood?");
                 wait(2);
                 
-                writeOut("Whatever.  Here's how the basics go.  You and your opponent (me) both get 5 ships.  Each ship will only take up 1 tile... so this game is more like battlerafts.  To begin, you and I will both place our rafts down on the 5x5 board.  Rows are labeled A-E, and columns are labeled 1-5.  To call or place down a ship on a tile, it would look like this - 'A5'.  That would place it on row 1, column 5.  Capiche? \n[yes] [no]");
-                bool capiche = getYesNo();
-                writeOut("After we both place our ships, we take turns guessing each other's raft placement.  If I guess a raft position correctly, that raft is destroyed.  If you guess a raft position correctly, that raft is destroyed.  First one to destroy all of the opponent's rafts is victorious.");
-                wait(6);
+                writeOut("Whatever.  Here's how the basics go.  You and your opponent (me) both get 5 ships.  Each ship will only take up 1 tile... so this game is more like battlerafts.  To begin, you and I will both place our rafts down on the 5x5 board.  Rows are labeled a-e, and columns are labeled 0-4.  To call or place down a ship on a tile, it would look like this - 'a4'.  That would place it on row 1, column 5.");
+				writeLine("|b0Capiche? [yes] [no]|f0");
+				bool capiche = getYesNo();
+                writeOut("After we both place our ships, we take turns guessing each other's raft placement.  If I guess a raft position correctly, that raft is destroyed.  If you guess a raft position correctly, that raft is destroyed.  First one to destroy all of the opponent's rafts is victorious. There will be two 5x5 boards, one with dotted lines, and one with x's with five o's.  The o's are your rafts on your side of the field.  I can't see it, but you can.  The dotted lines is my side of the field.  If you guess one of my raft placements correctly, the spot will turn into an x.");
+				writeLine("|b0Do you understand? [yes] [no]|f0");
+				bool yaNo = getYesNo();
                 writeOut("Okay I've run out of patience, let's play.");
             }
 
@@ -44,15 +51,15 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 writeOut("Go!");
             }
 
-            writeLine("Raft location 1: ");
+            writeLine("Your raft location 1: ");
             string L1 = getInput();
-            writeLine("Raft location 2: ");
+            writeLine("Your raft location 2: ");
             string L2 = getInput();
-            writeLine("Raft location 3: ");
+            writeLine("Your raft location 3: ");
             string L3 = getInput();
-            writeLine("Raft location 4: ");
+            writeLine("Your raft location 4: ");
             string L4 = getInput();
-            writeLine("Raft location 5: ");
+            writeLine("Your raft location 5: ");
             string L5 = getInput();
 
 
@@ -228,11 +235,32 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 }
 
                 writeLine("");
-                wait(10);
+                wait(6);
                 clear();
 
-                if (enemyField[f, fff] = "x" &&)
-            }
+				if (enemyField[f, fff] == "x" && enemyField[g, ggg] == "x" && enemyField[h, hhh] == "x" && enemyField[i, iii] == "x" && enemyField[j, jjj] == "x")
+				{
+					for (int count = 0; count < 15; count++)
+					{
+						writeLine("Congratulations, you won!");
+						wait(0.7);
+						beep(700, 2);
+					}
+
+					break;
+				}
+				if (yourField[a, aaa] == "x" && yourField[b, bbb] == "x" && yourField[c, ccc] == "x" && yourField[d, ddd] == "x" && yourField[e, eee] == "x")
+				{
+					for (int count = 0; count < 15; count++)
+					{
+						writeLine("u lost gg");
+					}
+					wait(5);
+
+					break;
+				}
+
+			}
             
 
 
